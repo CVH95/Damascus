@@ -1,4 +1,4 @@
-# LEO-2 Course Project.
+# Course Project - LEO2
 
 ### Secure Ad Hoc Networking with Raspberry Pi's.
 
