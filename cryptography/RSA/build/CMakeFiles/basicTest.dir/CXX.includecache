@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/RSA.h
+iostream
+-
+math.h
+-
+string.h
+-
+stdlib.h
+-
+stdio.h
+-
+
+/home/charlie/workspace/LEO2/cryptography/RSA/src/test.cpp
+RSA.h
+-
+
