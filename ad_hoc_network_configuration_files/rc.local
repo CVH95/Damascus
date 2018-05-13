@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# rc.local
+#
+# To execute this file, change the execution bits. Otherwise, 
+# by default it does nothing.
+
+adhocNetwork(){
+	ifconfig wlan0 down
+	iwconfig wlan0 mode ad-hoc
+	iwconfig wlan0 enc on
+	iwconfig wlan0 essid leo2
+	iwconfig wlan0 192.168.10.5 netmask 255.255.255.0 up
+	/usr/sbin/dhcpd wlan0
+}
+
+adhocNetwork
+echo "Kinsasa is now broadcasting in Ad Hoc Network: leo2"
+
+exit 0
