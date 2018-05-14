@@ -17,9 +17,9 @@ set(EXECUTABLE_OUTPUT_PATH "../bin")
 # Create shared library
 add_library(RSA SHARED src/RSA.cpp)
 
-# The shared library to build:
+# The executable to build:
 ADD_EXECUTABLE(basicTest src/test.cpp)
-TARGET_LINK_LIBRARIES(basicTest RSA ${ROBWORK_LIBRARIES})
+TARGET_LINK_LIBRARIES(basicTest RSA)
 
 # Output end message
 MESSAGE(${PROJECT_NAME} " done!")
