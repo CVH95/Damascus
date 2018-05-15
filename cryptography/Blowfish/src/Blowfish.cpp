@@ -17,11 +17,6 @@ void Blowfish::keyGen()
 	BF_set_key(&key, 10, psswd);
 	f.close();
 
-	/*ofstream of;
-	of.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/PrivateKey.txt");
-
-	of << key << endl;*/
-
 }// keyGen()
 
 
@@ -34,7 +29,7 @@ void Blowfish::encrypt(const unsigned char *msg)
 
 	// Saving cipher
 	ofstream of;
-	of.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher");
+	of.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher.txt");
 	of << cipher << endl;
 	of.close();
 
@@ -45,22 +40,26 @@ void Blowfish::encrypt(const unsigned char *msg)
 void Blowfish::decrypt()
 {
 	// Read cipher
-	ifstream fs;
-	fs.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher");
-	unsigned char cipher[BF_BLOCK];
-	//char buff[8];
-	//fs >> buff;
-	//cipher = (unsigned char) buff;
-	fs >> cipher;
+	ifstream file ("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher.txt", ios::in|ios::binary|ios::ate);
 
-	cout << cipher << endl;
+	file.seekg(0,ios::end);
+	int length = file.tellg(); // file length == ciphered message length
+	file.seekg(0);
 
+	char *memblock = new char[length];
+	file.read(memblock, length);
+
+	const unsigned char *cipher;
+	cipher = (const unsigned char*) memblock;
+	//cout << cipher << endl; // For debugging
+
+	file.close();
+
+	// Decrypt
 	unsigned char msg[BF_BLOCK];
 	BF_ecb_encrypt(cipher, msg, &key, BF_DECRYPT);
 	
 	cout << "Received message (decrypted):" << endl;
 	cout << msg << endl;
-	
-	fs.close();
 
 }// decrypt()
