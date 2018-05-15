@@ -22,7 +22,7 @@ include_directories( include )
 
 set(EXECUTABLE_OUTPUT_PATH "../bin")
 
- Create shared library
+# Create shared library
 add_library(Blowfish SHARED src/Blowfish.cpp)
 
 # The executable to build:

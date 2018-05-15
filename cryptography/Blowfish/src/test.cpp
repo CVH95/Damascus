@@ -19,8 +19,6 @@ int main()
 	cout << endl;
 	key = (const unsigned char *) psswd;
 
-
-	//unsigned char key_data[10] = "topsecret";
 	BF_KEY bfKey;
 	BF_set_key(&bfKey, 10, key);
 	

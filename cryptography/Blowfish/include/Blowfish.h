@@ -1,6 +1,15 @@
+// General
 #include <iostream>
-#include <fstream>
+#include <fstream> 
+#include <vector>
+#include <math.h> 
+#include <numeric>
+#include <algorithm>
+#include <iterator>
+#include <boost/foreach.hpp>
 #include <string>
+#include <vector>
+#include <stdio.h>
 #include <openssl/blowfish.h>
 
 using namespace std;
@@ -8,12 +17,11 @@ using namespace std;
 class Blowfish{
   public:
 
-	void keyGen(const string filename);
-	unsigned char encrypt(const unsigned char *msg);
-	unsigned char decrypt(unsigned char cipher);
+	void keyGen();
+	void encrypt(const unsigned char *msg);
+	void decrypt();
 
   private:
 	
-	ifstream keyTXT;
-	BF_key key;
+	BF_KEY key;
 };

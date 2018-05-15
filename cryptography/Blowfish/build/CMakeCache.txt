@@ -17,6 +17,9 @@
 //Value Computed by CMake
 Blowfish_BINARY_DIR:STATIC=/home/charlie/workspace/LEO2/cryptography/Blowfish/build
 
+//Dependencies for target
+Blowfish_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 Blowfish_SOURCE_DIR:STATIC=/home/charlie/workspace/LEO2/cryptography/Blowfish
 

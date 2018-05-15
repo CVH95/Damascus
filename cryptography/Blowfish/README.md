@@ -9,4 +9,4 @@ Contains:
 
 To do list:
 
- - Complete `src/encryption.cpp` and `src/decryption.cpp` setting them to store and read messages from files.
+ - Bug when reading the ciphered file. 
