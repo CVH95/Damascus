@@ -189,6 +189,9 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 //Dependencies for target
 RSA_LIB_DEPENDS:STATIC=
 
+//Dependencies for target
+Security_LIB_DEPENDS:STATIC=
+
 
 ########################
 # INTERNAL cache entries

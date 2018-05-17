@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named verification
+
+# Build rule for target.
+verification: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 verification
+.PHONY : verification
+
+# fast build rule for target.
+verification/fast:
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/build
+.PHONY : verification/fast
+
+#=============================================================================
+# Target rules for targets named sign
+
+# Build rule for target.
+sign: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sign
+.PHONY : sign
+
+# fast build rule for target.
+sign/fast:
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/build
+.PHONY : sign/fast
+
+#=============================================================================
 # Target rules for targets named basicTestBF
 
 # Build rule for target.
@@ -137,6 +163,32 @@ encryptionRSA/fast:
 .PHONY : encryptionRSA/fast
 
 #=============================================================================
+# Target rules for targets named Security
+
+# Build rule for target.
+Security: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Security
+.PHONY : Security
+
+# fast build rule for target.
+Security/fast:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/build
+.PHONY : Security/fast
+
+#=============================================================================
+# Target rules for targets named authentication
+
+# Build rule for target.
+authentication: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 authentication
+.PHONY : authentication
+
+# fast build rule for target.
+authentication/fast:
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/build
+.PHONY : authentication/fast
+
+#=============================================================================
 # Target rules for targets named RSA
 
 # Build rule for target.
@@ -161,6 +213,19 @@ BF_decryption: cmake_check_build_system
 BF_decryption/fast:
 	$(MAKE) -f CMakeFiles/BF_decryption.dir/build.make CMakeFiles/BF_decryption.dir/build
 .PHONY : BF_decryption/fast
+
+#=============================================================================
+# Target rules for targets named Blowfish
+
+# Build rule for target.
+Blowfish: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Blowfish
+.PHONY : Blowfish
+
+# fast build rule for target.
+Blowfish/fast:
+	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/build
+.PHONY : Blowfish/fast
 
 #=============================================================================
 # Target rules for targets named BF_encryption
@@ -200,19 +265,6 @@ decryptionRSA: cmake_check_build_system
 decryptionRSA/fast:
 	$(MAKE) -f CMakeFiles/decryptionRSA.dir/build.make CMakeFiles/decryptionRSA.dir/build
 .PHONY : decryptionRSA/fast
-
-#=============================================================================
-# Target rules for targets named Blowfish
-
-# Build rule for target.
-Blowfish: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Blowfish
-.PHONY : Blowfish
-
-# fast build rule for target.
-Blowfish/fast:
-	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/build
-.PHONY : Blowfish/fast
 
 #=============================================================================
 # Target rules for targets named basicTestRSA
@@ -443,6 +495,60 @@ RSA/src/generate_key.cpp.s:
 	$(MAKE) -f CMakeFiles/randomKey.dir/build.make CMakeFiles/randomKey.dir/RSA/src/generate_key.cpp.s
 .PHONY : RSA/src/generate_key.cpp.s
 
+RSA/src/getCA.o: RSA/src/getCA.cpp.o
+
+.PHONY : RSA/src/getCA.o
+
+# target to build an object file
+RSA/src/getCA.cpp.o:
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/RSA/src/getCA.cpp.o
+.PHONY : RSA/src/getCA.cpp.o
+
+RSA/src/getCA.i: RSA/src/getCA.cpp.i
+
+.PHONY : RSA/src/getCA.i
+
+# target to preprocess a source file
+RSA/src/getCA.cpp.i:
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/RSA/src/getCA.cpp.i
+.PHONY : RSA/src/getCA.cpp.i
+
+RSA/src/getCA.s: RSA/src/getCA.cpp.s
+
+.PHONY : RSA/src/getCA.s
+
+# target to generate assembly for a file
+RSA/src/getCA.cpp.s:
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/RSA/src/getCA.cpp.s
+.PHONY : RSA/src/getCA.cpp.s
+
+RSA/src/signCA.o: RSA/src/signCA.cpp.o
+
+.PHONY : RSA/src/signCA.o
+
+# target to build an object file
+RSA/src/signCA.cpp.o:
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/RSA/src/signCA.cpp.o
+.PHONY : RSA/src/signCA.cpp.o
+
+RSA/src/signCA.i: RSA/src/signCA.cpp.i
+
+.PHONY : RSA/src/signCA.i
+
+# target to preprocess a source file
+RSA/src/signCA.cpp.i:
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/RSA/src/signCA.cpp.i
+.PHONY : RSA/src/signCA.cpp.i
+
+RSA/src/signCA.s: RSA/src/signCA.cpp.s
+
+.PHONY : RSA/src/signCA.s
+
+# target to generate assembly for a file
+RSA/src/signCA.cpp.s:
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/RSA/src/signCA.cpp.s
+.PHONY : RSA/src/signCA.cpp.s
+
 RSA/src/test.o: RSA/src/test.cpp.o
 
 .PHONY : RSA/src/test.o
@@ -470,6 +576,60 @@ RSA/src/test.cpp.s:
 	$(MAKE) -f CMakeFiles/basicTestRSA.dir/build.make CMakeFiles/basicTestRSA.dir/RSA/src/test.cpp.s
 .PHONY : RSA/src/test.cpp.s
 
+Security/src/Security.o: Security/src/Security.cpp.o
+
+.PHONY : Security/src/Security.o
+
+# target to build an object file
+Security/src/Security.cpp.o:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/Security/src/Security.cpp.o
+.PHONY : Security/src/Security.cpp.o
+
+Security/src/Security.i: Security/src/Security.cpp.i
+
+.PHONY : Security/src/Security.i
+
+# target to preprocess a source file
+Security/src/Security.cpp.i:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/Security/src/Security.cpp.i
+.PHONY : Security/src/Security.cpp.i
+
+Security/src/Security.s: Security/src/Security.cpp.s
+
+.PHONY : Security/src/Security.s
+
+# target to generate assembly for a file
+Security/src/Security.cpp.s:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/Security/src/Security.cpp.s
+.PHONY : Security/src/Security.cpp.s
+
+src/verification.o: src/verification.cpp.o
+
+.PHONY : src/verification.o
+
+# target to build an object file
+src/verification.cpp.o:
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/src/verification.cpp.o
+.PHONY : src/verification.cpp.o
+
+src/verification.i: src/verification.cpp.i
+
+.PHONY : src/verification.i
+
+# target to preprocess a source file
+src/verification.cpp.i:
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/src/verification.cpp.i
+.PHONY : src/verification.cpp.i
+
+src/verification.s: src/verification.cpp.s
+
+.PHONY : src/verification.s
+
+# target to generate assembly for a file
+src/verification.cpp.s:
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/src/verification.cpp.s
+.PHONY : src/verification.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -477,16 +637,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... verification"
+	@echo "... sign"
 	@echo "... basicTestBF"
 	@echo "... encryptionRSA"
+	@echo "... Security"
+	@echo "... authentication"
 	@echo "... RSA"
 	@echo "... BF_decryption"
+	@echo "... Blowfish"
 	@echo "... BF_encryption"
 	@echo "... randomKey"
 	@echo "... decryptionRSA"
-	@echo "... Blowfish"
 	@echo "... basicTestRSA"
-	@echo "... rebuild_cache"
 	@echo "... Blowfish/src/Blowfish.o"
 	@echo "... Blowfish/src/Blowfish.i"
 	@echo "... Blowfish/src/Blowfish.s"
@@ -511,9 +675,21 @@ help:
 	@echo "... RSA/src/generate_key.o"
 	@echo "... RSA/src/generate_key.i"
 	@echo "... RSA/src/generate_key.s"
+	@echo "... RSA/src/getCA.o"
+	@echo "... RSA/src/getCA.i"
+	@echo "... RSA/src/getCA.s"
+	@echo "... RSA/src/signCA.o"
+	@echo "... RSA/src/signCA.i"
+	@echo "... RSA/src/signCA.s"
 	@echo "... RSA/src/test.o"
 	@echo "... RSA/src/test.i"
 	@echo "... RSA/src/test.s"
+	@echo "... Security/src/Security.o"
+	@echo "... Security/src/Security.i"
+	@echo "... Security/src/Security.s"
+	@echo "... src/verification.o"
+	@echo "... src/verification.i"
+	@echo "... src/verification.s"
 .PHONY : help
 
 

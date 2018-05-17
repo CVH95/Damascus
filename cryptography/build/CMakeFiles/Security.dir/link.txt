@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libSecurity.so -o libSecurity.so CMakeFiles/Security.dir/Security/src/Security.cpp.o 

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Security/include/Security.h
+iostream
+-
+fstream
+-
+vector
+-
+math.h
+-
+numeric
+-
+algorithm
+-
+iterator
+-
+boost/foreach.hpp
+-
+string
+-
+vector
+-
+time.h
+-
+stdio.h
+-
+
+/home/charlie/workspace/LEO2/cryptography/Security/src/Security.cpp
+Security.h
+-
+

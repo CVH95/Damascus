@@ -1,3 +1,5 @@
+// BLOWFISH CLASS
+
 // General
 #include <iostream>
 #include <fstream> 

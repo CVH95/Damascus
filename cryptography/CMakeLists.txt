@@ -27,7 +27,7 @@ add_library(Blowfish SHARED Blowfish/src/Blowfish.cpp)
 # Create RSA shared library
 add_library(RSA SHARED RSA/src/RSA.cpp)
 # Create Security shared library
-#add_library(Security SHARED Security/src/Security.cpp)
+add_library(Security SHARED Security/src/Security.cpp)
 
 ################
 ### BLOWFISH ###
@@ -65,6 +65,21 @@ TARGET_LINK_LIBRARIES(encryptionRSA RSA)
 ADD_EXECUTABLE(decryptionRSA RSA/src/decrypt.cpp)
 TARGET_LINK_LIBRARIES(decryptionRSA RSA)
 
+# The executable to build:
+ADD_EXECUTABLE(sign RSA/src/signCA.cpp)
+TARGET_LINK_LIBRARIES(sign RSA)
+
+# The executable to build:
+ADD_EXECUTABLE(authentication RSA/src/getCA.cpp)
+TARGET_LINK_LIBRARIES(authentication RSA)
+
+################
+### SECURITY ###
+################
+
+# The executable to build:
+ADD_EXECUTABLE(verification src/verification.cpp)
+TARGET_LINK_LIBRARIES(verification Security)
 
 # Output end message
 MESSAGE(${PROJECT_NAME} " done!")

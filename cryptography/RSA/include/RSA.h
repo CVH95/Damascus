@@ -1,4 +1,4 @@
-// Simple implementation of the RSA algorithm
+// RSA CLASS
 
 #include <iostream>
 #include <fstream>
@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <vector>
+#include <sstream>
 
 
 using namespace std;
@@ -33,9 +34,13 @@ class RSA{
 	long int randomPrime(long int min, long int max);
 	long int primeVerification(long int p, long int q, long int min, long int max);
 	void keyGen(long int p, long int q);
+	vector<long int> getKey(string filename);
 	void encryption(char msg[100]);
 	void decryption();
-	
+
+	// Authentication
+	void signIdentity();
+	void getIdentity();
 
   private:
 	long int temp[100];

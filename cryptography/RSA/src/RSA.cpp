@@ -222,12 +222,6 @@ void RSA::keyGen(long int p, long int q)
 
 	RSA::compute_e(p, q, R);
 
-	//cout << "Possible Key-Pairs:" << endl;
-    	/*for (long int h = 0; h < j - 1; h++)
-	{
-	        cout << h << ":   Public Key ( n = " << n <<  ", e = " << e[h] << " )   |     Private Key ( n = " << n << ", d = " << d[h] << " ) " << endl;
-	}// for*/
-
 	// Random key selection
 	int i = rand() %j;
 	long int e_rand = e[i];
@@ -241,23 +235,21 @@ void RSA::keyGen(long int p, long int q)
 	// Save keys
 	ofstream f, g;
 	f.open("../Keys/RSA_PrivateKey.txt");
+	//f.open("../Keys/Signature_PrivateKey_4.txt");
 	f << n << " " << d_rand << endl;
 	f.close();
 	g.open("../Keys/RSA_PublicKey.txt");
+	//g.open("../Keys/Signature_PublicKey_4.txt");
 	g << n << " " << e_rand << endl;
 	g.close();
 
 }// keyGen
 
-
-// Encryption funtion ready to read and write to files
-void RSA::encryption(char msg[100])
+vector<long int> RSA::getKey(string filename)
 {
-
 	ifstream inf;
-	inf.open("../Keys/RSA_PublicKey.txt");
+	inf.open(filename.c_str());
 
-	
 	long int val;
 	vector<long int> values;
 	while( inf >> val )
@@ -266,11 +258,25 @@ void RSA::encryption(char msg[100])
 	}
 
 	inf.close();
-
+		
 	if( values.size() > 2)
 	{
 		cout << "An error ocurred when reading the Public Key" << endl;
-	}
+		
+	}// if
+	else
+	{
+		return values;
+	}// else
+
+}// getKey()
+
+
+// Encryption funtion ready to read and write to files
+void RSA::encryption(char msg[100])
+{
+	string filename = "../Keys/RSA_PublicKey.txt";
+	vector<long int> values = RSA::getKey(filename);
 
 	long int pt, ct, k, len;
 	long int n = values[0];
@@ -331,29 +337,13 @@ void RSA::encryption(char msg[100])
 
 
 
-
+// External decryption function
 void RSA::decryption()
 {
 	// Get Private Key
-	ifstream inf;
-	inf.open("../Keys/RSA_PrivateKey.txt");
-
+	string filename = "../Keys/RSA_PrivateKey.txt";
+	vector<long int> values = RSA::getKey(filename);
 	
-	long int val;
-	vector<long int> values;
-	while( inf >> val )
-	{
-		values.push_back(val);
-	}
-
-	inf.close();
-
-	if( values.size() > 2)
-	{
-		cout << "An error ocurred when reading the Public Key" << endl;
-	}
-
-	// Get temp value from encryption
 	ifstream file;
 	file.open("../genfiles/temp.txt");
 
@@ -418,3 +408,181 @@ void RSA::decryption()
 	cout << endl;
 
 }// decryption()
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+
+// Function to sign "CA" (sign with private key)
+void RSA::signIdentity()
+{
+	// Random selection of the key-"CA"
+	int min = 1; int max = 4;
+	int num = rand() %(max-min +1) + min;
+	stringstream ss, tt, qq;
+	if (num > 4)
+	{
+		cout << "File not available" << endl;
+	}// if
+	
+	ss << "../Keys/Signature_PrivateKey_" << num << ".txt";
+	string keyfile = ss.str();
+	tt << "../Keys/Signature_Message_" << num << ".txt";
+	string mfile = tt.str();
+	qq << "../Keys/Signature_PublicKey_" << num << ".txt";
+	string pubfile = qq.str(); 
+
+	cout << pubfile << endl;
+	// Save corresponding public key to share.
+	vector<long int> toche = RSA::getKey(pubfile);
+	long int N = toche[0];
+	long int DD = toche[1];
+	cout << "Key to export: " << N << ", " << DD << endl;
+	ofstream pff;
+	pff.open("../Keys/Current_DS_key.txt");
+	pff << N << " " << DD << endl;
+	pff.close();
+
+	// Get encryption Key
+	vector<long int> values = RSA::getKey(keyfile);
+	long int n = values[0];
+	long int key = values[1];
+	
+	// Read "CA"
+	ifstream inf;
+	inf.open(mfile.c_str());
+	char msg[100];
+	inf >> msg;
+	inf.close();
+
+	for (long int i = 0; msg[i] != '\0'; i++)
+	{m[i] = msg[i];}
+
+	// Sign "CA"
+	long int pt, ct, k, len;
+	cout << "Authentication encoding key: (" << n << ", " << key << ")" << endl;
+    	
+	indx = 0;
+    	len = strlen(msg);
+	while (indx != len)
+    	{
+        	pt = m[indx];
+        	pt = pt - 96;
+        	k = 1;
+        
+		for (j = 0; j < key; j++)
+        	{
+        	    k = k * pt;
+        	    k = k % n;
+
+        	}// for
+
+	        temp[indx] = k;
+	        ct = k + 96;
+	        en[indx] = ct;
+	        indx++;
+
+	}// while
+	//cout << "temp: " << temp << endl;
+	cout << "Signed 'CA':" << endl;
+	
+	en[indx] = -1;
+	temp[indx] = -1;
+	FILE * of;
+	of = fopen("../genfiles/SignedCA.txt", "w");
+	for (indx = 0; en[indx] != -1; indx++)
+	{        
+		fprintf(of, "%u \n", en[indx]);
+		printf("%u", en[indx]);
+		
+	} // for 
+	
+	cout << endl;	
+
+	FILE * f;
+	f = fopen("../genfiles/tempDS.txt", "w");
+	//cout << "temp:" << endl;
+	for (indx = 0; temp[indx] != -1; indx++)
+	{        
+		fprintf(f, "%u \n", temp[indx]);
+		//printf("%u", temp[indx]);
+		
+	} // for 
+	cout << endl;
+
+}// signIdentity
+
+
+// Function to decrypt the "CA"
+void RSA::getIdentity()
+{
+	// Read key
+	string keyfile = "../Keys/Current_DS_key.txt";
+	vector<long int> values = RSA::getKey(keyfile);
+	long int n = values[0];
+	long int key = values[1];
+
+	// Get temp parameter
+	ifstream file;
+	file.open("../genfiles/tempDS.txt");
+
+	string lines;
+	int nl = 0;
+
+	while( getline(file, lines) )
+	{
+		nl++;
+	} // while 
+
+	file.close();
+	ifstream fs;
+	fs.open("../genfiles/tempDS.txt");
+	//cout << "temp:" << endl;
+	for (int h = 0; h<nl; h++)
+	{
+		fs >> temp[h];
+		//printf("%u", temp[h]);
+	}
+	//cout << endl;
+	fs.close();
+
+	// Start decryption
+	long int pt, ct, k;
+	cout << "Authentication decoding key: (" << n << ", " << key << ")" << endl;
+	
+	long int i = 0;
+	en[10] = -1;
+	while (en[i] != -1)
+	{
+
+	        ct = temp[i];
+	        k = 1;
+		
+	        for (j = 0; j < key; j++)
+	        {
+            		k = k * ct;
+		        k = k % n;
+
+        	}// for
+        	
+		pt = k + 96;
+		
+	        m[i] = pt;
+			        
+		i++;
+
+	}// while
+	
+    	m[i] = -1;
+	cout << endl;	
+   	cout << "Decrypted 'CA':" << endl;
+	FILE * lf;
+	lf = fopen("../genfiles/DigitalSignatureAuthentication.txt", "w");
+    	for (i = 0; m[i] != -1; i++)
+	{
+		fprintf(lf, "%c", m[i]);
+        	printf("%c", m[i]);
+	} //for
+	cout << endl;
+
+
+}// getIdentity()

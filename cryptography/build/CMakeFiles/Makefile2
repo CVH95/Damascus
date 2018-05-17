@@ -60,13 +60,87 @@ CMAKE_SOURCE_DIR = /home/charlie/workspace/LEO2/cryptography
 CMAKE_BINARY_DIR = /home/charlie/workspace/LEO2/cryptography/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/verification.dir
+
+# All Build rule for target.
+CMakeFiles/verification.dir/all: CMakeFiles/Security.dir/all
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/depend
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=25,26 "Built target verification"
+.PHONY : CMakeFiles/verification.dir/all
+
+# Include target in all.
+all: CMakeFiles/verification.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/verification.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/verification.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/verification.dir/rule
+
+# Convenience name for target.
+verification: CMakeFiles/verification.dir/rule
+
+.PHONY : verification
+
+# clean rule for target.
+CMakeFiles/verification.dir/clean:
+	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/clean
+.PHONY : CMakeFiles/verification.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/verification.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/sign.dir
+
+# All Build rule for target.
+CMakeFiles/sign.dir/all: CMakeFiles/RSA.dir/all
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/depend
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=23,24 "Built target sign"
+.PHONY : CMakeFiles/sign.dir/all
+
+# Include target in all.
+all: CMakeFiles/sign.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sign.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sign.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/sign.dir/rule
+
+# Convenience name for target.
+sign: CMakeFiles/sign.dir/rule
+
+.PHONY : sign
+
+# clean rule for target.
+CMakeFiles/sign.dir/clean:
+	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/clean
+.PHONY : CMakeFiles/sign.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/sign.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/basicTestBF.dir
 
 # All Build rule for target.
 CMakeFiles/basicTestBF.dir/all:
 	$(MAKE) -f CMakeFiles/basicTestBF.dir/build.make CMakeFiles/basicTestBF.dir/depend
 	$(MAKE) -f CMakeFiles/basicTestBF.dir/build.make CMakeFiles/basicTestBF.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=9,10 "Built target basicTestBF"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=13,14 "Built target basicTestBF"
 .PHONY : CMakeFiles/basicTestBF.dir/all
 
 # Include target in all.
@@ -103,7 +177,7 @@ clean: CMakeFiles/basicTestBF.dir/clean
 CMakeFiles/encryptionRSA.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/encryptionRSA.dir/build.make CMakeFiles/encryptionRSA.dir/depend
 	$(MAKE) -f CMakeFiles/encryptionRSA.dir/build.make CMakeFiles/encryptionRSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=15,16 "Built target encryptionRSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=19,20 "Built target encryptionRSA"
 .PHONY : CMakeFiles/encryptionRSA.dir/all
 
 # Include target in all.
@@ -130,6 +204,80 @@ CMakeFiles/encryptionRSA.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/encryptionRSA.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Security.dir
+
+# All Build rule for target.
+CMakeFiles/Security.dir/all:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/depend
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=9,10 "Built target Security"
+.PHONY : CMakeFiles/Security.dir/all
+
+# Include target in all.
+all: CMakeFiles/Security.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Security.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Security.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/Security.dir/rule
+
+# Convenience name for target.
+Security: CMakeFiles/Security.dir/rule
+
+.PHONY : Security
+
+# clean rule for target.
+CMakeFiles/Security.dir/clean:
+	$(MAKE) -f CMakeFiles/Security.dir/build.make CMakeFiles/Security.dir/clean
+.PHONY : CMakeFiles/Security.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Security.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/authentication.dir
+
+# All Build rule for target.
+CMakeFiles/authentication.dir/all: CMakeFiles/RSA.dir/all
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/depend
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=11,12 "Built target authentication"
+.PHONY : CMakeFiles/authentication.dir/all
+
+# Include target in all.
+all: CMakeFiles/authentication.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/authentication.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/authentication.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/authentication.dir/rule
+
+# Convenience name for target.
+authentication: CMakeFiles/authentication.dir/rule
+
+.PHONY : authentication
+
+# clean rule for target.
+CMakeFiles/authentication.dir/clean:
+	$(MAKE) -f CMakeFiles/authentication.dir/build.make CMakeFiles/authentication.dir/clean
+.PHONY : CMakeFiles/authentication.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/authentication.dir/clean
 
 .PHONY : clean
 
@@ -208,6 +356,43 @@ clean: CMakeFiles/BF_decryption.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/Blowfish.dir
+
+# All Build rule for target.
+CMakeFiles/Blowfish.dir/all:
+	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/depend
+	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=5,6 "Built target Blowfish"
+.PHONY : CMakeFiles/Blowfish.dir/all
+
+# Include target in all.
+all: CMakeFiles/Blowfish.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Blowfish.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Blowfish.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/Blowfish.dir/rule
+
+# Convenience name for target.
+Blowfish: CMakeFiles/Blowfish.dir/rule
+
+.PHONY : Blowfish
+
+# clean rule for target.
+CMakeFiles/Blowfish.dir/clean:
+	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/clean
+.PHONY : CMakeFiles/Blowfish.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Blowfish.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/BF_encryption.dir
 
 # All Build rule for target.
@@ -251,7 +436,7 @@ clean: CMakeFiles/BF_encryption.dir/clean
 CMakeFiles/randomKey.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/randomKey.dir/build.make CMakeFiles/randomKey.dir/depend
 	$(MAKE) -f CMakeFiles/randomKey.dir/build.make CMakeFiles/randomKey.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=17,18 "Built target randomKey"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=21,22 "Built target randomKey"
 .PHONY : CMakeFiles/randomKey.dir/all
 
 # Include target in all.
@@ -288,7 +473,7 @@ clean: CMakeFiles/randomKey.dir/clean
 CMakeFiles/decryptionRSA.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/decryptionRSA.dir/build.make CMakeFiles/decryptionRSA.dir/depend
 	$(MAKE) -f CMakeFiles/decryptionRSA.dir/build.make CMakeFiles/decryptionRSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=13,14 "Built target decryptionRSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=17,18 "Built target decryptionRSA"
 .PHONY : CMakeFiles/decryptionRSA.dir/all
 
 # Include target in all.
@@ -319,50 +504,13 @@ clean: CMakeFiles/decryptionRSA.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Blowfish.dir
-
-# All Build rule for target.
-CMakeFiles/Blowfish.dir/all:
-	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/depend
-	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=5,6 "Built target Blowfish"
-.PHONY : CMakeFiles/Blowfish.dir/all
-
-# Include target in all.
-all: CMakeFiles/Blowfish.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Blowfish.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Blowfish.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
-.PHONY : CMakeFiles/Blowfish.dir/rule
-
-# Convenience name for target.
-Blowfish: CMakeFiles/Blowfish.dir/rule
-
-.PHONY : Blowfish
-
-# clean rule for target.
-CMakeFiles/Blowfish.dir/clean:
-	$(MAKE) -f CMakeFiles/Blowfish.dir/build.make CMakeFiles/Blowfish.dir/clean
-.PHONY : CMakeFiles/Blowfish.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/Blowfish.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/basicTestRSA.dir
 
 # All Build rule for target.
 CMakeFiles/basicTestRSA.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/basicTestRSA.dir/build.make CMakeFiles/basicTestRSA.dir/depend
 	$(MAKE) -f CMakeFiles/basicTestRSA.dir/build.make CMakeFiles/basicTestRSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=11,12 "Built target basicTestRSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=15,16 "Built target basicTestRSA"
 .PHONY : CMakeFiles/basicTestRSA.dir/all
 
 # Include target in all.
