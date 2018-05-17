@@ -9,6 +9,8 @@
 ../include/RSA.h
 iostream
 -
+fstream
+-
 math.h
 -
 string.h
@@ -16,6 +18,10 @@ string.h
 stdlib.h
 -
 stdio.h
+-
+time.h
+-
+vector
 -
 
 /home/charlie/workspace/LEO2/cryptography/RSA/src/RSA.cpp

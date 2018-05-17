@@ -1,10 +1,13 @@
 // Simple implementation of the RSA algorithm
 
 #include <iostream>
+#include <fstream>
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#include <vector>
 
 
 using namespace std;
@@ -17,7 +20,7 @@ class RSA{
 	long int d[100];
 	long int m[100];
 	long int j;
-	//char msg[100];	
+	long int en[100];	
 
 	bool isPrime(long int pr);
 	long int LCM(long int a, long int b);
@@ -25,10 +28,17 @@ class RSA{
 	long int compute_d(long int x, long int R);
 	void encrypt(int ind, long int n, char msg[100]);
 	void decrypt(int ind, long int n);
+
+	// Individual encryption and decryption functions
+	long int randomPrime(long int min, long int max);
+	long int primeVerification(long int p, long int q, long int min, long int max);
+	void keyGen(long int p, long int q);
+	void encryption(char msg[100]);
+	void decryption();
 	
 
   private:
 	long int temp[100];
-    	long int en[100];
+    	long int indx;
 
 };

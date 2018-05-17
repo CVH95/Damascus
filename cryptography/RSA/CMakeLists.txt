@@ -21,5 +21,17 @@ add_library(RSA SHARED src/RSA.cpp)
 ADD_EXECUTABLE(basicTest src/test.cpp)
 TARGET_LINK_LIBRARIES(basicTest RSA)
 
+# The executable to build:
+ADD_EXECUTABLE(randomKey src/generate_key.cpp)
+TARGET_LINK_LIBRARIES(randomKey RSA)
+
+# The executable to build:
+ADD_EXECUTABLE(encryptionRSA src/encrypt.cpp)
+TARGET_LINK_LIBRARIES(encryptionRSA RSA)
+
+# The executable to build:
+ADD_EXECUTABLE(decryptionRSA src/decrypt.cpp)
+TARGET_LINK_LIBRARIES(decryptionRSA RSA)
+
 # Output end message
 MESSAGE(${PROJECT_NAME} " done!")
