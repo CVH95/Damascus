@@ -1,7 +1,7 @@
 # Cryptography Code
 
 Security system overview:
-![alt text](System Overview - LEO2.png)
+![alt text](sss.png)
 
 
 ### Build and Compile
