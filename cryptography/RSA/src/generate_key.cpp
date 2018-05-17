@@ -23,7 +23,7 @@ int main()
 
 	secret.keyGen(p, q);
 
-	cout << endl << "Key-pair saved to RSA/genfiles/" << endl;
+	cout << endl << "Key-pair saved to cryptography/Keys/" << endl;
 
 	return 0;
 }

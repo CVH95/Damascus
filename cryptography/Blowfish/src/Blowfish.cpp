@@ -6,7 +6,7 @@ void Blowfish::keyGen()
 {
 	// Read psswd 
 	ifstream f;
-	f.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/PrivateKey.txt");
+	f.open("../Keys/BF_PrivateKey.txt");
 
 	const unsigned char *psswd;
 	char buff[10];
@@ -29,7 +29,7 @@ void Blowfish::encrypt(const unsigned char *msg)
 
 	// Saving cipher
 	ofstream of;
-	of.open("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher.txt");
+	of.open("../genfiles/cipher.txt");
 	of << cipher << endl;
 	of.close();
 
@@ -40,7 +40,7 @@ void Blowfish::encrypt(const unsigned char *msg)
 void Blowfish::decrypt()
 {
 	// Read cipher
-	ifstream file ("/home/charlie/workspace/LEO2/cryptography/Blowfish/genfiles/cipher.txt", ios::in|ios::binary|ios::ate);
+	ifstream file ("../genfiles/cipher.txt", ios::in|ios::binary|ios::ate);
 
 	file.seekg(0,ios::end);
 	int length = file.tellg(); // file length == ciphered message length

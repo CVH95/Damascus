@@ -240,10 +240,10 @@ void RSA::keyGen(long int p, long int q)
 
 	// Save keys
 	ofstream f, g;
-	f.open("../genfiles/PrivateKey.txt");
+	f.open("../Keys/RSA_PrivateKey.txt");
 	f << n << " " << d_rand << endl;
 	f.close();
-	g.open("../genfiles/PublicKey.txt");
+	g.open("../Keys/RSA_PublicKey.txt");
 	g << n << " " << e_rand << endl;
 	g.close();
 
@@ -255,7 +255,7 @@ void RSA::encryption(char msg[100])
 {
 
 	ifstream inf;
-	inf.open("../genfiles/PublicKey.txt");
+	inf.open("../Keys/RSA_PublicKey.txt");
 
 	
 	long int val;
@@ -336,7 +336,7 @@ void RSA::decryption()
 {
 	// Get Private Key
 	ifstream inf;
-	inf.open("../genfiles/PrivateKey.txt");
+	inf.open("../Keys/RSA_PrivateKey.txt");
 
 	
 	long int val;

@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	ifstream inf;
-	inf.open("../../Blowfish/genfiles/PrivateKey.txt");
+	inf.open("../Keys/BF_PrivateKey.txt");
 	
 	RSA secret;
 

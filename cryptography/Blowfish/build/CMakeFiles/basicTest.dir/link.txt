@@ -1,1 +1,0 @@
-/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/basicTest.dir/src/test.cpp.o  -o ../bin/basicTest -rdynamic -lssl -lcrypto 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/basicTestBF.dir/Blowfish/src/test.cpp.o  -o ../bin/basicTestBF -rdynamic -lssl -lcrypto 
