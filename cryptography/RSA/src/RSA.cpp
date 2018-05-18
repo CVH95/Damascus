@@ -273,10 +273,10 @@ vector<long int> RSA::getKey(string filename)
 
 
 // Encryption funtion ready to read and write to files
-void RSA::encryption(char msg[100])
+void RSA::encryption(char msg[100], string keyin, string fout)
 {
-	string filename = "../Keys/RSA_PublicKey.txt";
-	vector<long int> values = RSA::getKey(filename);
+	//string filename = "../Keys/RSA_PublicKey.txt";
+	vector<long int> values = RSA::getKey(keyin);
 
 	long int pt, ct, k, len;
 	long int n = values[0];
@@ -312,7 +312,8 @@ void RSA::encryption(char msg[100])
 	en[indx] = -1;
 	temp[indx] = -1;
 	FILE * of;
-	of = fopen("../genfiles/BF_Key_ciphered.txt", "w");
+	//of = fopen("../genfiles/BF_Key_ciphered.txt", "w");
+	of = fopen(fout.c_str(), "w");	
 	for (indx = 0; en[indx] != -1; indx++)
 	{        
 		fprintf(of, "%u \n", en[indx]);
@@ -338,11 +339,11 @@ void RSA::encryption(char msg[100])
 
 
 // External decryption function
-void RSA::decryption()
+void RSA::decryption(string keyin, string fout)
 {
 	// Get Private Key
-	string filename = "../Keys/RSA_PrivateKey.txt";
-	vector<long int> values = RSA::getKey(filename);
+	//string filename = "../Keys/RSA_PrivateKey.txt";
+	vector<long int> values = RSA::getKey(keyin);
 	
 	ifstream file;
 	file.open("../genfiles/temp.txt");
@@ -401,9 +402,12 @@ void RSA::decryption()
     	m[i] = -1;
 	cout << endl;	
    	cout << "Decrypted Message:" << endl;
+	FILE * ff;	
+	ff = fopen(fout.c_str(), "w");	
     	for (i = 0; m[i] != -1; i++)
 	{
         	printf("%c", m[i]);
+		fprintf(ff, "%c", m[i]);
 	} //for
 	cout << endl;
 
@@ -413,7 +417,7 @@ void RSA::decryption()
 
 
 // Function to sign "CA" (sign with private key)
-void RSA::signIdentity()
+void RSA::signIdentity(string fkout, string fout)
 {
 	// Random selection of the key-"CA"
 	int min = 1; int max = 4;
@@ -438,7 +442,8 @@ void RSA::signIdentity()
 	long int DD = toche[1];
 	cout << "Key to export: " << N << ", " << DD << endl;
 	ofstream pff;
-	pff.open("../Keys/Current_DS_key.txt");
+	//pff.open("../Keys/Current_DS_key.txt");
+	pff.open(fkout.c_str());
 	pff << N << " " << DD << endl;
 	pff.close();
 
@@ -488,7 +493,7 @@ void RSA::signIdentity()
 	en[indx] = -1;
 	temp[indx] = -1;
 	FILE * of;
-	of = fopen("../genfiles/SignedCA.txt", "w");
+	of = fopen(fout.c_str(), "w"); //../genfiles/SignedCA.txt
 	for (indx = 0; en[indx] != -1; indx++)
 	{        
 		fprintf(of, "%u \n", en[indx]);
@@ -513,11 +518,11 @@ void RSA::signIdentity()
 
 
 // Function to decrypt the "CA"
-void RSA::getIdentity()
+void RSA::getIdentity(string fin, string fout)
 {
 	// Read key
-	string keyfile = "../Keys/Current_DS_key.txt";
-	vector<long int> values = RSA::getKey(keyfile);
+	//string keyfile = "../Keys/Current_DS_key.txt";
+	vector<long int> values = RSA::getKey(fin);
 	long int n = values[0];
 	long int key = values[1];
 
@@ -576,7 +581,8 @@ void RSA::getIdentity()
 	cout << endl;	
    	cout << "Decrypted 'CA':" << endl;
 	FILE * lf;
-	lf = fopen("../genfiles/DigitalSignatureAuthentication.txt", "w");
+	//lf = fopen("../genfiles/DigitalSignatureAuthentication.txt", "w");
+	lf = fopen(fout.c_str(), "w");
     	for (i = 0; m[i] != -1; i++)
 	{
 		fprintf(lf, "%c", m[i]);

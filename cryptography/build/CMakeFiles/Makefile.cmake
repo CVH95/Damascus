@@ -47,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/server.dir/DependInfo.cmake"
   "CMakeFiles/verification.dir/DependInfo.cmake"
   "CMakeFiles/sign.dir/DependInfo.cmake"
   "CMakeFiles/basicTestBF.dir/DependInfo.cmake"
@@ -54,6 +55,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Security.dir/DependInfo.cmake"
   "CMakeFiles/authentication.dir/DependInfo.cmake"
   "CMakeFiles/RSA.dir/DependInfo.cmake"
+  "CMakeFiles/client.dir/DependInfo.cmake"
   "CMakeFiles/BF_decryption.dir/DependInfo.cmake"
   "CMakeFiles/Blowfish.dir/DependInfo.cmake"
   "CMakeFiles/BF_encryption.dir/DependInfo.cmake"

@@ -33,15 +33,15 @@ add_library(Security SHARED Security/src/Security.cpp)
 ### BLOWFISH ###
 ################
 
-# The executable to build:
+# To build Blowfish test program:
 ADD_EXECUTABLE(basicTestBF Blowfish/src/test.cpp)
 TARGET_LINK_LIBRARIES(basicTestBF ${OPENSSL_LIBRARIES})
 
-# The executable to build:
+# To build Blowfish encryption program:
 ADD_EXECUTABLE(BF_encryption Blowfish/src/encryption.cpp)
 TARGET_LINK_LIBRARIES(BF_encryption Blowfish ${OPENSSL_LIBRARIES})
 
-# The executable to build:
+# To build Blowfish decryption program:
 ADD_EXECUTABLE(BF_decryption Blowfish/src/decryption.cpp)
 TARGET_LINK_LIBRARIES(BF_decryption Blowfish ${OPENSSL_LIBRARIES})
 
@@ -49,27 +49,27 @@ TARGET_LINK_LIBRARIES(BF_decryption Blowfish ${OPENSSL_LIBRARIES})
 ###    RSA    ###
 #################
 
-# The executable to build:
+# To build RSA test program:
 ADD_EXECUTABLE(basicTestRSA RSA/src/test.cpp)
 TARGET_LINK_LIBRARIES(basicTestRSA RSA)
 
-# The executable to build:
+# To build random key generation program:
 ADD_EXECUTABLE(randomKey RSA/src/generate_key.cpp)
 TARGET_LINK_LIBRARIES(randomKey RSA)
 
-# The executable to build:
+# To build RSA encryption program:
 ADD_EXECUTABLE(encryptionRSA RSA/src/encrypt.cpp)
 TARGET_LINK_LIBRARIES(encryptionRSA RSA)
 
-# The executable to build:
+# To build RSA decryption program:
 ADD_EXECUTABLE(decryptionRSA RSA/src/decrypt.cpp)
 TARGET_LINK_LIBRARIES(decryptionRSA RSA)
 
-# The executable to build:
+# To build RSA signing program:
 ADD_EXECUTABLE(sign RSA/src/signCA.cpp)
 TARGET_LINK_LIBRARIES(sign RSA)
 
-# The executable to build:
+# To build RSA authentication program:
 ADD_EXECUTABLE(authentication RSA/src/getCA.cpp)
 TARGET_LINK_LIBRARIES(authentication RSA)
 
@@ -77,9 +77,18 @@ TARGET_LINK_LIBRARIES(authentication RSA)
 ### SECURITY ###
 ################
 
-# The executable to build:
+# To build verification test:
 ADD_EXECUTABLE(verification src/verification.cpp)
 TARGET_LINK_LIBRARIES(verification Security)
+
+# To build server program:
+ADD_EXECUTABLE(server src/server.cpp)
+TARGET_LINK_LIBRARIES(server Blowfish RSA Security)
+
+# To build client program:
+ADD_EXECUTABLE(client src/client.cpp)
+TARGET_LINK_LIBRARIES(client Blowfish RSA Security)
+
 
 # Output end message
 MESSAGE(${PROJECT_NAME} " done!")

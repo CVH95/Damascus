@@ -21,7 +21,9 @@ int main()
 
 	cout << "Network's private BF key: " << msg << endl; 
 	
-	secret.encryption(msg);
+	string filename = "../Keys/RSA_PublicKey.txt";
+	string fout = "../genfiles/BF_Key_ciphered.txt";
+	secret.encryption(msg, filename, fout);
 
 	return 0;
 

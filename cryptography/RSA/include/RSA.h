@@ -35,12 +35,12 @@ class RSA{
 	long int primeVerification(long int p, long int q, long int min, long int max);
 	void keyGen(long int p, long int q);
 	vector<long int> getKey(string filename);
-	void encryption(char msg[100]);
-	void decryption();
+	void encryption(char msg[100], string keyin, string fout);
+	void decryption(string keyin, string fout);
 
 	// Authentication
-	void signIdentity();
-	void getIdentity();
+	void signIdentity(string fkout, string fout);
+	void getIdentity(string fin, string fout);
 
   private:
 	long int temp[100];

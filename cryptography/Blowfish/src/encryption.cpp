@@ -16,8 +16,10 @@ int main()
 
 	// Blowfish
 	Blowfish BF;
-	BF.keyGen();
-	BF.encrypt(msg);
+	string fin = "../Keys/BF_PrivateKey.txt";
+	BF.keyGen(fin);
+	string fout = "../genfiles/cipher.txt";
+	BF.encrypt(msg, fout);
 	
 	cout << "Ciphered and saved to cryptography/genfiles/cipher.txt" << endl;
 	

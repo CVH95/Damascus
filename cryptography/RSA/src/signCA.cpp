@@ -11,7 +11,9 @@ int main()
 	RSA ca;
 
 	cout << "Signing random CA" << endl;
-	ca.signIdentity();
+	string fkout = "../Keys/Current_DS_key.txt";
+	string fout = "../genfiles/SignedCA.txt";
+	ca.signIdentity(fkout, fout);
 	
 	return 0;
 

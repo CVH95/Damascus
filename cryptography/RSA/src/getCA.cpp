@@ -35,8 +35,10 @@ int main()
 	}
 	cout << endl;
 	fs.close();
-
-	ca.getIdentity();
+	
+	string fin = "../Keys/Current_DS_key.txt";
+	string fout = "../genfiles/DigitalSignatureAuthentication.txt";
+	ca.getIdentity(fin, fout);
 	
 	return 0;
 

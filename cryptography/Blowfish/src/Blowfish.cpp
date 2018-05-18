@@ -2,11 +2,11 @@
 
 using namespace std;
 
-void Blowfish::keyGen()
+void Blowfish::keyGen(string fin)
 {
 	// Read psswd 
 	ifstream f;
-	f.open("../Keys/BF_PrivateKey.txt");
+	f.open(fin.c_str());
 
 	const unsigned char *psswd;
 	char buff[10];
@@ -22,14 +22,14 @@ void Blowfish::keyGen()
 
 
 // Encryption function
-void Blowfish::encrypt(const unsigned char *msg)
+void Blowfish::encrypt(const unsigned char *msg, string fout)
 {
 	unsigned char cipher[BF_BLOCK];
 	BF_ecb_encrypt(msg, cipher, &key, BF_ENCRYPT);	
 
 	// Saving cipher
 	ofstream of;
-	of.open("../genfiles/cipher.txt");
+	of.open(fout.c_str());
 	of << cipher << endl;
 	of.close();
 
@@ -37,10 +37,10 @@ void Blowfish::encrypt(const unsigned char *msg)
 
 
 // Decryption function
-void Blowfish::decrypt()
+void Blowfish::decrypt(string fin)
 {
 	// Read cipher
-	ifstream file ("../genfiles/cipher.txt", ios::in|ios::binary|ios::ate);
+	ifstream file (fin.c_str(), ios::in|ios::binary|ios::ate); //"../genfiles/cipher.txt"
 
 	file.seekg(0,ios::end);
 	int length = file.tellg(); // file length == ciphered message length

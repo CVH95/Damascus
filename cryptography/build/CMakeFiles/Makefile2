@@ -60,13 +60,52 @@ CMAKE_SOURCE_DIR = /home/charlie/workspace/LEO2/cryptography
 CMAKE_BINARY_DIR = /home/charlie/workspace/LEO2/cryptography/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/server.dir
+
+# All Build rule for target.
+CMakeFiles/server.dir/all: CMakeFiles/Security.dir/all
+CMakeFiles/server.dir/all: CMakeFiles/RSA.dir/all
+CMakeFiles/server.dir/all: CMakeFiles/Blowfish.dir/all
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=25,26 "Built target server"
+.PHONY : CMakeFiles/server.dir/all
+
+# Include target in all.
+all: CMakeFiles/server.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/server.dir/rule
+
+# Convenience name for target.
+server: CMakeFiles/server.dir/rule
+
+.PHONY : server
+
+# clean rule for target.
+CMakeFiles/server.dir/clean:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
+.PHONY : CMakeFiles/server.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/server.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/verification.dir
 
 # All Build rule for target.
 CMakeFiles/verification.dir/all: CMakeFiles/Security.dir/all
 	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/depend
 	$(MAKE) -f CMakeFiles/verification.dir/build.make CMakeFiles/verification.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=25,26 "Built target verification"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=29,30 "Built target verification"
 .PHONY : CMakeFiles/verification.dir/all
 
 # Include target in all.
@@ -103,7 +142,7 @@ clean: CMakeFiles/verification.dir/clean
 CMakeFiles/sign.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/depend
 	$(MAKE) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=23,24 "Built target sign"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=27,28 "Built target sign"
 .PHONY : CMakeFiles/sign.dir/all
 
 # Include target in all.
@@ -177,7 +216,7 @@ clean: CMakeFiles/basicTestBF.dir/clean
 CMakeFiles/encryptionRSA.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/encryptionRSA.dir/build.make CMakeFiles/encryptionRSA.dir/depend
 	$(MAKE) -f CMakeFiles/encryptionRSA.dir/build.make CMakeFiles/encryptionRSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=19,20 "Built target encryptionRSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=21,22 "Built target encryptionRSA"
 .PHONY : CMakeFiles/encryptionRSA.dir/all
 
 # Include target in all.
@@ -319,6 +358,45 @@ clean: CMakeFiles/RSA.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/client.dir
+
+# All Build rule for target.
+CMakeFiles/client.dir/all: CMakeFiles/Security.dir/all
+CMakeFiles/client.dir/all: CMakeFiles/RSA.dir/all
+CMakeFiles/client.dir/all: CMakeFiles/Blowfish.dir/all
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=17,18 "Built target client"
+.PHONY : CMakeFiles/client.dir/all
+
+# Include target in all.
+all: CMakeFiles/client.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/charlie/workspace/LEO2/cryptography/build/CMakeFiles 0
+.PHONY : CMakeFiles/client.dir/rule
+
+# Convenience name for target.
+client: CMakeFiles/client.dir/rule
+
+.PHONY : client
+
+# clean rule for target.
+CMakeFiles/client.dir/clean:
+	$(MAKE) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/clean
+.PHONY : CMakeFiles/client.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/client.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/BF_decryption.dir
 
 # All Build rule for target.
@@ -436,7 +514,7 @@ clean: CMakeFiles/BF_encryption.dir/clean
 CMakeFiles/randomKey.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/randomKey.dir/build.make CMakeFiles/randomKey.dir/depend
 	$(MAKE) -f CMakeFiles/randomKey.dir/build.make CMakeFiles/randomKey.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=21,22 "Built target randomKey"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=23,24 "Built target randomKey"
 .PHONY : CMakeFiles/randomKey.dir/all
 
 # Include target in all.
@@ -473,7 +551,7 @@ clean: CMakeFiles/randomKey.dir/clean
 CMakeFiles/decryptionRSA.dir/all: CMakeFiles/RSA.dir/all
 	$(MAKE) -f CMakeFiles/decryptionRSA.dir/build.make CMakeFiles/decryptionRSA.dir/depend
 	$(MAKE) -f CMakeFiles/decryptionRSA.dir/build.make CMakeFiles/decryptionRSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=17,18 "Built target decryptionRSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=19,20 "Built target decryptionRSA"
 .PHONY : CMakeFiles/decryptionRSA.dir/all
 
 # Include target in all.

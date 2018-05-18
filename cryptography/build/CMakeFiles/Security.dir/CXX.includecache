@@ -31,6 +31,22 @@ time.h
 -
 stdio.h
 -
+sys/socket.h
+-
+netinet/in.h
+-
+netdb.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+errno.h
+-
+sys/types.h
+-
+time.h
+-
 
 /home/charlie/workspace/LEO2/cryptography/Security/src/Security.cpp
 Security.h

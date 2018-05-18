@@ -40,5 +40,159 @@ bool Security::verifyAuthentication(string filename)
 	}
 
 	return allowed;
-}
+
+}// verifyAuthentication()
+
+
+// Create Socket
+int Security::createSocket(int port)
+{
+	int s;
+    	struct sockaddr_in addr;
+
+    	addr.sin_family = AF_INET;
+    	addr.sin_port = htons(port);
+    	addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    	s = socket(AF_INET, SOCK_STREAM, 0);
+
+   	if (s < 0) 
+	{
+		perror("Failed to create socket\n");
+		exit(EXIT_FAILURE);
+    	}// if
+
+    	if (bind(s, (struct sockaddr*)&addr, sizeof(addr)) < 0) 
+	{
+		perror("Failed to bind address\n");
+		exit(EXIT_FAILURE);
+    	}// if
+
+    	if (listen(s, 1) < 0) 
+	{
+		perror("Failed to listen\n");
+		exit(EXIT_FAILURE);
+    	}// if
+
+    return s;
+
+}// createSocket()
+
+
+// Send data over socket
+int Security::sendMessage(int socket, char msg[100])
+{
+	// Get actual message size
+	int length = strlen(msg);
+	char buffer[length];
+	for(int i=0; i< length; i++)	
+	{
+		buffer[i] = msg[i];
+	}// for
+
+	// Send buffer
+	int n;
+	if ( (n = write( socket, buffer, length ) ) < 0 )
+   		perror("ERROR writing to socket\n");
+  
+	buffer[n] = '\0';
+
+	return length;
+
+}//sendMessage()
+
+
+// Read regular data in the socket & save into file
+void Security::readMessage(int socket, int length)
+{
+	char buffer[length];
+	int n;
+
+	if ( (n = read(socket, buffer, length) ) < 0 )
+    		perror("ERROR reading from socket\n");
+ 	buffer[n] = -1;
+	
+	FILE * ofc;
+	ofc = fopen("../sockets/received_message.txt","w");
+	for(int i=0; buffer[i] != -1; i++)
+	{
+		fprintf(ofc, "%c", buffer[i]);
+		printf("%c", buffer[i]);
+	}// for
+	cout << endl;
+	cout << "Received Message and saved to sockets/received_message.txt" << endl;
+
+}// readMessage()
+
+
+// Read Public Keys on socket
+long int Security::readKey(int socket)
+{
+	char buffer[100];
+	int n;
+	if ( (n = read(socket, buffer, strlen(buffer) ) ) < 0 )
+    		perror("ERROR reading from socket\n");
+
+ 	buffer[n] = '\0';	
+
+	long int key = atol(buffer);
+	return key;
+
+}// readKey();
+
+
+
+// Read RSA encrypted messages
+void Security::readCrypto(int socket, int length, string file)
+{
+	char buffer[length];
+	int n;
+	if ( (n = read(socket, buffer, length) ) < 0 )
+    		perror("ERROR reading from socket\n");
+
+ 	buffer[n] = '\0';
+
+	long int crypt[length];
+	for(int i = 0; buffer[i] != '\0'; i++)
+	{
+		crypt[i] = buffer[i];
+	}// for
+
+	crypt[length] = -1;
+	FILE * ofu;
+	ofu = fopen(file.c_str(), "w");
+	for(int j=0; crypt[j] != -1; j++)
+	{
+		fprintf(ofu, "%u \n", crypt[j]); 
+	}// for
+
+	cout << "Received ciphered data and saved to sockets/received_RSA_ciphered.txt" << endl;
+
+}// readCrypto()
+
+
+// Closing message
+void Security::shutdownSocket( int socket, int x)
+{
+	int n;
+
+  	char buffer[10];
+  	sprintf( buffer, "%d\n", x );
+  	if ( (n = write( socket, buffer, strlen(buffer) ) ) < 0 )
+      		perror("ERROR sending closing message to socket");
+  	buffer[n] = '\0';	
+
+}// shutdownSocket()
+
+// Save shared public keys into file
+void Security::savePublicKey(long int n, long int e, string file)
+{
+	ofstream of;
+	of.open(file.c_str());
+	
+	of << n << " " << e << endl;
+	
+	of.close();
+
+}// savePublicKey()
 

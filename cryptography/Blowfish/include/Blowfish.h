@@ -19,9 +19,9 @@ using namespace std;
 class Blowfish{
   public:
 
-	void keyGen();
-	void encrypt(const unsigned char *msg);
-	void decrypt();
+	void keyGen(string fin);
+	void encrypt(const unsigned char *msg, string fout);
+	void decrypt(string fin);
 
   private:
 	

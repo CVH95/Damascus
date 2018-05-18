@@ -8,8 +8,10 @@ int main()
 {
 	// Blowfish
 	Blowfish BF;
-	BF.keyGen();
-	BF.decrypt();
+	string fin = "../genfiles/cipher.txt";
+	string key = "../Keys/BF_PrivateKey.txt";
+	BF.keyGen(key);
+	BF.decrypt(fin);
 
 	return 0;
 

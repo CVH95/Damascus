@@ -33,7 +33,9 @@ int main()
 	cout << endl;
 	fs.close();
 
-	secret.decryption();	
+	string filename = "../Keys/RSA_PrivateKey.txt";
+	string fout = "../genfiles/decrypted_message.txt";
+	secret.decryption(filename, fout);	
 
 	return 0;
 
