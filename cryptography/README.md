@@ -40,4 +40,8 @@ Programs:
 
 ### Security Class
 
-For now only contains the program for verification of the signature. To be extended.
+Implements a series of useful functions, such as verification, sockets...
+
+Programs:
+  - Verification.
+  - Client/Server test that runs a test of the whole system described in the figure above.

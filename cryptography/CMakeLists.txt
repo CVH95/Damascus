@@ -83,11 +83,11 @@ TARGET_LINK_LIBRARIES(verification Security)
 
 # To build server program:
 ADD_EXECUTABLE(server src/server.cpp)
-TARGET_LINK_LIBRARIES(server Blowfish RSA Security)
+TARGET_LINK_LIBRARIES(server Blowfish RSA Security ${OPENSSL_LIBRARIES})
 
 # To build client program:
 ADD_EXECUTABLE(client src/client.cpp)
-TARGET_LINK_LIBRARIES(client Blowfish RSA Security)
+TARGET_LINK_LIBRARIES(client Blowfish RSA Security ${OPENSSL_LIBRARIES})
 
 
 # Output end message

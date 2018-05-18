@@ -1,1 +1,1 @@
-/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/client.dir/src/client.cpp.o  -o ../bin/client -rdynamic libBlowfish.so libRSA.so libSecurity.so -Wl,-rpath,/home/charlie/workspace/LEO2/cryptography/build 
+/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/client.dir/src/client.cpp.o  -o ../bin/client -rdynamic libBlowfish.so libRSA.so libSecurity.so -lssl -lcrypto -Wl,-rpath,/home/charlie/workspace/LEO2/cryptography/build 

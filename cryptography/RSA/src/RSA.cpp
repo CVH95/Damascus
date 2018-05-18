@@ -320,7 +320,7 @@ void RSA::encryption(char msg[100], string keyin, string fout)
 		printf("%u", en[indx]);
 		
 	} // for 
-	
+	fclose(of);
 	cout << endl;	
 
 	FILE * f;
@@ -332,6 +332,7 @@ void RSA::encryption(char msg[100], string keyin, string fout)
 		//printf("%u", temp[indx]);
 		
 	} // for 
+	fclose(f);
 	cout << endl;
 
 }// encryption()
@@ -409,6 +410,7 @@ void RSA::decryption(string keyin, string fout)
         	printf("%c", m[i]);
 		fprintf(ff, "%c", m[i]);
 	} //for
+	fclose(ff);
 	cout << endl;
 
 }// decryption()
@@ -500,9 +502,9 @@ void RSA::signIdentity(string fkout, string fout)
 		printf("%u", en[indx]);
 		
 	} // for 
-	
+	fclose(of);
 	cout << endl;	
-
+	cout << "Saved to " << fout << endl;
 	FILE * f;
 	f = fopen("../genfiles/tempDS.txt", "w");
 	//cout << "temp:" << endl;
@@ -511,7 +513,8 @@ void RSA::signIdentity(string fkout, string fout)
 		fprintf(f, "%u \n", temp[indx]);
 		//printf("%u", temp[indx]);
 		
-	} // for 
+	} // for
+	fclose(f); 
 	cout << endl;
 
 }// signIdentity
@@ -588,6 +591,7 @@ void RSA::getIdentity(string fin, string fout)
 		fprintf(lf, "%c", m[i]);
         	printf("%c", m[i]);
 	} //for
+	fclose(lf);
 	cout << endl;
 
 

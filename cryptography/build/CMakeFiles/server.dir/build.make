@@ -93,6 +93,8 @@ server_EXTERNAL_OBJECTS =
 ../bin/server: libBlowfish.so
 ../bin/server: libRSA.so
 ../bin/server: libSecurity.so
+../bin/server: /usr/lib/x86_64-linux-gnu/libssl.so
+../bin/server: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ../bin/server: CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/charlie/workspace/LEO2/cryptography/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)

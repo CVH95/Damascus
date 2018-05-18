@@ -103,24 +103,25 @@ int Security::sendMessage(int socket, char msg[100])
 
 
 // Read regular data in the socket & save into file
-void Security::readMessage(int socket, int length)
+void Security::readMessage(int socket, string file)
 {
-	char buffer[length];
+	char buffer[100];
 	int n;
 
-	if ( (n = read(socket, buffer, length) ) < 0 )
+	if ( (n = read(socket, buffer, sizeof(int)) ) < 0 )
     		perror("ERROR reading from socket\n");
  	buffer[n] = -1;
 	
 	FILE * ofc;
-	ofc = fopen("../sockets/received_message.txt","w");
+	ofc = fopen(file.c_str(),"w");
 	for(int i=0; buffer[i] != -1; i++)
 	{
 		fprintf(ofc, "%c", buffer[i]);
 		printf("%c", buffer[i]);
 	}// for
+	fclose(ofc);
 	cout << endl;
-	cout << "Received Message and saved to sockets/received_message.txt" << endl;
+	cout << "Received Message and saved to " << file << endl;
 
 }// readMessage()
 
@@ -130,7 +131,7 @@ long int Security::readKey(int socket)
 {
 	char buffer[100];
 	int n;
-	if ( (n = read(socket, buffer, strlen(buffer) ) ) < 0 )
+	if ( (n = read(socket, buffer, sizeof(int) ) ) < 0 )
     		perror("ERROR reading from socket\n");
 
  	buffer[n] = '\0';	
@@ -152,11 +153,14 @@ void Security::readCrypto(int socket, int length, string file)
 
  	buffer[n] = '\0';
 
+
 	long int crypt[length];
 	for(int i = 0; buffer[i] != '\0'; i++)
 	{
 		crypt[i] = buffer[i];
+		printf("%c", buffer[i]);		
 	}// for
+	cout << endl;
 
 	crypt[length] = -1;
 	FILE * ofu;
@@ -165,22 +169,31 @@ void Security::readCrypto(int socket, int length, string file)
 	{
 		fprintf(ofu, "%u \n", crypt[j]); 
 	}// for
-
-	cout << "Received ciphered data and saved to sockets/received_RSA_ciphered.txt" << endl;
+	fclose(ofu);
+	cout << "Received ciphered data and saved to " << file << endl;
 
 }// readCrypto()
 
 
 // Closing message
-void Security::shutdownSocket( int socket, int x)
+void Security::shutdownSocket( int socket, int length, string file)
 {
 	int n;
 
-  	char buffer[10];
-  	sprintf( buffer, "%d\n", x );
-  	if ( (n = write( socket, buffer, strlen(buffer) ) ) < 0 )
+  	char buffer[length];
+  	if ( (n = read( socket, buffer, length ) ) < 0 )
       		perror("ERROR sending closing message to socket");
-  	buffer[n] = '\0';	
+  	buffer[n] = '\0';
+
+	FILE * ofu;
+	ofu = fopen(file.c_str(), "w");
+	for(int j=0; buffer[j] != '\0'; j++)
+	{
+		fprintf(ofu, "%c", buffer[j]);
+		printf("%c", buffer[j]); 
+	}// for
+	cout << endl;
+	fclose(ofu);	
 
 }// shutdownSocket()
 
