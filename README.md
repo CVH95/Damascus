@@ -35,4 +35,7 @@ To see all branches created in a project, go to the directory in the local machi
 $ git branch
 ```
 
+### Implementation
+
+All cryptographic functions were tested and work fine. However, the main functionality of the system inside an ad hoc network could not be tested yet, due to unavailability of hardware to broadcast an ad hoc network with Raspberry Pi's.
 
