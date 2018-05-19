@@ -44,4 +44,4 @@ Implements a series of useful functions, such as verification, sockets...
 
 Programs:
   - Verification.
-  - Client/Server test that runs a test of the whole system described in the figure above.
+  - Client/Server test that runs a test of the whole system described in the figure above. When running the test, the client needs the IP of the server as an argument.
